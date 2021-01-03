@@ -2,16 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-int S;
+#define S 100
 
 void sort_char(char *v)
 {
     char c, menor;
-    int d=0;
-    while (d<S)
+    int d=0, t;
+    t = strlen(v);
+    while (d<t)
     {
         menor='z';
-        for (int i = d; i < S; ++i)
+        for (int i = d; v[i] != '\0'; ++i)
         {
             if (menor>v[i])
             {
@@ -27,8 +28,6 @@ void sort_char(char *v)
      
 int main(int argc, char const *argv[])
 {
-    printf("Digite o tamanho do vetor\n");
-    scanf("%d", &S);
     char a[S];
     printf("As letras que o vetor vai guardar\n");
     scanf("%s", a);
