@@ -17,10 +17,6 @@ int main( )
             tam++;
             a[tam]=parada;
         }
-        else
-        {
-            break;
-        }
     }
     while (d<tam)
     {
