@@ -4,10 +4,19 @@
 
 int main( )
 {
-    int i, j, parada=1, d=0, tam=-1, num, a[10] = {3, 4, 2, 6, 5, 1};
-    for (i = 0; a[i] != '\0'; ++i)
+    int i, j, num, parada=1, tam=0, a[10]={3, 2, 4, 1, 6, 5};
+    for (i = 1; a[i] != '\0'; ++i)
     {
         tam++;
+        for (j = i; j > -1; --j)
+        {
+            num = a[j];
+            if (num<a[j-1])
+            {
+                a[j] = a[j-1];
+                a[j-1] = num;
+            }
+        }
     }
     while (parada>0)
     {
@@ -16,21 +25,16 @@ int main( )
         {    
             tam++;
             a[tam]=parada;
-        }
-    }
-    while (d<tam)
-    {
-        for (j = tam; j > -1; --j)
-        {
-        
-            if (a[j]<a[j-1])
-            {   
+            for (j = tam; j > -1; --j)
+            {
                 num = a[j];
-                a[j] = a[j-1];
-                a[j-1]=num;
-            }        
+                if (num<a[j-1])
+                {
+                    a[j] = a[j-1];
+                    a[j-1] = num;
+                }
+            }
         }
-        d++;
     }
     for (i = 0; i < tam+1; ++i)
     {
@@ -45,3 +49,4 @@ int main( )
     }
     return 0;
 }
+
